@@ -30,8 +30,8 @@ input[type="submit"]{
 	flex-grow: 1;
 }
 
-#contact {
-	padding: 0em 1em;}
+/*#contact {
+	padding: 0em 1em;}*/
 
 form textarea {
 	margin: 0.5em 0em 0.5em 1em;}
