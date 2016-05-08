@@ -1,0 +1,118 @@
+{% extends 'back/base.html.twig' %}
+
+{% block css %}
+	{{ parent() }}
+	<link href="{{ asset('css/member/editall.css') }}" 
+		type="text/css" 
+		rel="stylesheet" />
+{% endblock %}
+
+{% block body %}
+    <h1>Membres</h1>
+	{% for member in members %}
+		<div class="member">
+			{{ form_start(member.form) }}
+				<div class="image">
+					<label for="project_image_{{loop.index}}">
+						<img class="button" src="/images/profils/{{member.object.imageName}}" class="aa"></img>
+					</label>
+					{{ form_widget(member.form.image, 
+						{'id': 'project_image_'~loop.index,
+						'attr':{'class':'profil_image'}}  ) }}
+				</div>
+				<div class="col">
+					<div class="name">
+						{{ form_widget(member.form.firstname) }}
+						{{ form_widget(member.form.name) }}
+					</div>
+					{{ form_widget(member.form.username) }}
+					{{ form_widget(member.form.password) }}
+					{{ form_widget(member.form.email) }}
+					{{ form_widget(member.form.mobile) }}
+				</div>
+				<div class="col">
+					{{ form_row(member.form.isImportant) }}
+					{{ form_row(member.form.hasKey) }}
+					{{ form_row(member.form.isActive) }}
+					{{ form_widget(member.form.cityOfBirth) }}
+					{{ form_widget(member.form.job) }}
+				</div>
+				<div class="col">
+					{{ form_widget(member.form.licensePath) }}
+					{{ form_widget(member.form.studentCardPath) }}
+					{{ form_widget(member.form.idCardPath) }}
+					{{ form_widget(member.form.cvPath) }}
+					{{ form_widget(member.form.grayCardPath) }}
+				</div>
+				{{ form_widget(member.form.address) }}
+				{{ form_widget(member.form.description) }}
+				<input type="submit" value="Edit" />
+			{{ form_end(member.form) }}
+			
+			{{ form_start(member.deleteForm) }}
+				<input type="submit" value="Delete">
+			{{ form_end(member.deleteForm) }}
+		</div>
+	{% endfor %}
+	
+	{{ form_start(newForm) }}
+		<div class="image">
+			<label for="project_image_0">
+				<img class="button" src="/images/profils/default.png" class="aa"></img>
+			</label>
+			{{ form_widget(newForm.image, 
+				{'id': 'project_image_'~0,
+				'attr':{'class':'profil_image'}}  ) }}
+		</div>
+		<div class="col">
+			<div id="aa">
+				{{ form_widget(newForm.firstname) }}
+				{{ form_widget(newForm.name) }}
+			</div>
+			{{ form_widget(newForm.username) }}
+			{{ form_widget(newForm.password) }}
+			{{ form_widget(newForm.email) }}
+			{{ form_widget(newForm.mobile) }}
+		</div>
+		<div class="col">
+			{{ form_row(newForm.isImportant) }}
+			{{ form_row(newForm.hasKey) }}
+			{{ form_row(newForm.isActive) }}
+			{{ form_widget(newForm.cityOfBirth) }}
+			{{ form_widget(newForm.job) }}
+		</div>
+		<div class="col">
+			{{ form_widget(newForm.licensePath) }}
+			{{ form_widget(newForm.studentCardPath) }}
+			{{ form_widget(newForm.idCardPath) }}
+			{{ form_widget(newForm.cvPath) }}
+			{{ form_widget(newForm.grayCardPath) }}
+		</div>
+			{{ form_widget(newForm.address) }}
+		{{ form_widget(newForm.description) }}
+		<input type="submit" value="Add" />
+	{{ form_end(newForm) }}
+    
+    
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+<script>
+function handleFileSelect(evt) {
+	var img = $(this).parent().find('label').find('img');
+	console.log(img);
+	var files = evt.target.files;
+	for (var i = 0, f; f = files[i]; i++) {
+		if (!f.type.match('image.*')) {
+			continue;
+		}
+		var reader = new FileReader();
+		reader.onload = (function(theFile) {
+			return function(e) {
+				img.attr("src",e.target.result)
+			};
+		})(f);
+		reader.readAsDataURL(f);
+	}
+}
+$('input:file').change(handleFileSelect);
+</script>  
+{% endblock %}

@@ -1,0 +1,54 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	
+	<head>	
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<title>{{ website }} - {{ title }}</title>
+		{% block css %}
+			<link href="{{ asset('css/main.css') }}" type="text/css" rel="stylesheet" />
+  		{% endblock %}
+  		{% block js %}
+			<script src="{{ asset('js/jquery-1.11.3.js') }}" type="text/javascript"></script>
+			<script src="{{ asset('js/functions.js') }}" type="text/javascript"></script>
+			<script src="http://code.jquery.com/jquery-1.9.1.js" type="text/javascript"></script>
+			<script src="http://code.jquery.com/ui/1.10.2/jquery-ui.js" type="text/javascript"></script>
+  		{% endblock %}
+    </head>
+	
+    <body>
+    	<header id="header">
+			<nav id="main-nav">
+				<ul>
+					<li><img id="header_logo" src="/images/general/mindup.png" alt="{{ images['logo']['alt'] }}"/></li>
+					<li><a class="" href="{{ a['home']['url']}}">Accueil</a></li>
+					<li><a class="" href="{{ a['team']['url']}}">Équipe</a></li>
+					<li><a class="" href="{{ a['projects']['url']}}">Projets</a></li>
+					<li><a class="" href="{{ a['contact']['url']}}">Contact</a></li>
+				</ul>
+			</nav>
+			<div class="share_boxes">
+				{#<!--<a class="box" id="twitter" href="#"><img src="{{ img['twitter']['src']}}"/></a>
+				<a class="box" id="facebook" href="#"><img src="{{ img['facebook']['src']}}"/></a>
+				<a class="box" id="google" href="#"><img src="{{ img['google']['src']}}"/></a>-->#}
+			</div>
+		</header>
+		{% block navs %}
+    	{% endblock %}
+    	<section id="main">
+    		<div id="innerMain">
+				{% block body %}
+				{% endblock %}
+			</div>
+		</section>
+    	<footer>
+			<p>
+				Copyright© 2015-2016 Web2i. All Rights Reserved.
+			</p>
+			<span class="spacer"></span>
+			<a class="" href="">A propos</a>
+			<a class="" href="{{ a['back']['url']}}">{{ a['back']['text'] }}</a>
+		</footer>
+    </body>
+	
+</html>
+

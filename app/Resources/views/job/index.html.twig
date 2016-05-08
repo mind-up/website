@@ -1,0 +1,61 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<section>
+    <h1>Job list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Department</th>
+                <th>Text</th>
+                <th>Browsebackoffice</th>
+                <th>Editselfinfos</th>
+                <th>Readotherinfos</th>
+                <th>Manageproject</th>
+                <th>Editfigures</th>
+                <th>Editotherinfos</th>
+                <th>Editpublictexts</th>
+                <th>Managepositions</th>
+                <th>Managemembers</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for job in jobs %}
+            <tr>
+                <td><a href="{{ path('job_show', { 'id': job.id }) }}">{{ job.id }}</a></td>
+                <td>{{ job.department }}</td>
+                <td>{{ job.text }}</td>
+                <td>{% if job.browseBackOffice %}Yes{% else %}No{% endif %}</td>
+                <td>{% if job.editSelfInfos %}Yes{% else %}No{% endif %}</td>
+                <td>{% if job.readOtherInfos %}Yes{% else %}No{% endif %}</td>
+                <td>{% if job.manageProject %}Yes{% else %}No{% endif %}</td>
+                <td>{% if job.editFigures %}Yes{% else %}No{% endif %}</td>
+                <td>{% if job.editOtherInfos %}Yes{% else %}No{% endif %}</td>
+                <td>{% if job.editPublicTexts %}Yes{% else %}No{% endif %}</td>
+                <td>{% if job.managePositions %}Yes{% else %}No{% endif %}</td>
+                <td>{% if job.manageMembers %}Yes{% else %}No{% endif %}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('job_show', { 'id': job.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('job_edit', { 'id': job.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('job_new') }}">Create a new entry</a>
+        </li>
+    </ul>
+</section>
+{% endblock %}

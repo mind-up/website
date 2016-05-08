@@ -1,0 +1,71 @@
+{% extends 'back/base.html.twig' %}
+
+{% block css %}
+	{{ parent() }}
+	<link href="{{ asset('css/member/edit.css') }}" 
+		type="text/css" 
+		rel="stylesheet" />
+{% endblock %}
+
+{% block body %}
+	<h1>Title</h1>
+    {{ form_start(edit_form) }}
+		<div class="image">
+			<label for="project_image_1">
+				<img class="button" src="/images/profils/{{member.imageName}}" class="aa"></img>
+			</label>
+			{{ form_widget(edit_form.image, 
+				{'id': 'project_image_'~1, 
+				'attr':{'class':'profil_image'}}  ) }}
+		</div>
+    	<div class="bb">
+			<div id="aa">
+				{{ form_widget(edit_form.firstname) }}
+				{{ form_widget(edit_form.name) }}
+			</div>
+			{{ form_widget(edit_form.username) }}
+			{{ form_widget(edit_form.password) }}
+			{{ form_widget(edit_form.email) }}
+			{{ form_widget(edit_form.mobile) }}
+		</div>
+		<div class="bb">
+			{{ form_row(edit_form.isImportant) }}
+			{{ form_row(edit_form.hasKey) }}
+			{{ form_row(edit_form.isActive) }}
+			{{ form_widget(edit_form.cityOfBirth) }}
+			{{ form_widget(edit_form.job) }}
+		</div>
+		<div class="bb">
+			{{ form_widget(edit_form.licensePath) }}
+			{{ form_widget(edit_form.studentCardPath) }}
+			{{ form_widget(edit_form.idCardPath) }}
+			{{ form_widget(edit_form.cvPath) }}
+			{{ form_widget(edit_form.grayCardPath) }}
+		</div>
+		{{ form_widget(edit_form.address) }}
+		{{ form_widget(edit_form.description) }}
+        <input type="submit" value="Edit" />
+    {{ form_end(edit_form) }}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+<script>
+function handleFileSelect(evt) {
+	var img = $(this).parent().find('label').find('img');
+	console.log(img);
+	var files = evt.target.files;
+	for (var i = 0, f; f = files[i]; i++) {
+		if (!f.type.match('image.*')) {
+			continue;
+		}
+		var reader = new FileReader();
+		reader.onload = (function(theFile) {
+			return function(e) {
+				img.attr("src",e.target.result)
+			};
+		})(f);
+		reader.readAsDataURL(f);
+	}
+}
+$('input:file').change(handleFileSelect);
+</script>
+{% endblock %}
+

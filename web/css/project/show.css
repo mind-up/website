@@ -1,0 +1,25 @@
+#technos {
+	display: flex;
+	flex-direction: row:
+	flex-wrap: wrap;
+	flex-alignement: center;
+}
+#technos > * {
+	margin: 1em;}
+	
+#description {
+	display: flex;
+	flex-direction: row:
+	flex-wrap: wrap;
+	align-items: flex-start;}
+#description div {
+	margin-right: 2em;
+	max-width: 50%;}
+#description p {
+	width: 0;
+	padding: 0em;
+	flex-grow: 1;}
+#description div img {
+	margin-right: 2em;
+	width :100%;
+	height: 100%;}

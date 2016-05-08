@@ -1,0 +1,34 @@
+{% extends 'base.html.twig' %}
+
+{% block css %}
+	{{ parent() }}
+	<link href="{{ asset('css/team.css') }}" type="text/css" rel="stylesheet" />
+{% endblock %}
+
+{% block body %}
+	<h1>Notre équipe</h1>
+	<p>
+		Mind-Up, c'est tout une équipe à votre service. 
+	</p>
+	<section id="team">
+		{% for department in departments %}
+				<h2>{{ department.text }}</h2>
+				<ul id="members">
+					{% for job in jobs %}
+						{% for member in members %}
+							{% if department == job.department and  job == member.job %}
+								<a href="/member/{{member.id}}" class="member">
+									<img src="/images/profils/{{member.imageName}}"></img>
+									<span>
+										<h3>{{ member.firstname }} {{ member.name }}</h3>
+										<h3>{{ member.job }}</h3>
+									</span>
+								</a>
+							{% endif %}
+						{% endfor %}
+					{% endfor %}
+				</ul>
+		{% endfor %}
+	</section>
+{% endblock %}
+

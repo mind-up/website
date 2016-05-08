@@ -1,0 +1,40 @@
+form {
+	display: flex;
+	flex-direction: column;
+	flex-wrap: wrap;
+	margin: 2em 0em;}
+
+form input, form textarea {
+	width: 10em;
+	padding: 0.5em;
+	margin: 0.5em 0em;
+	flex-grow: 1;}
+
+form #inputs {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+}
+
+form #inputs #texts {
+	display: flex;
+	flex-direction: column;
+	flex-wrap: wrap;
+}
+
+input[type="submit"]{
+	width: 100%;
+}
+
+#ask_info_message {
+	flex-grow: 1;
+}
+
+#contact {
+	padding: 0em 1em;}
+
+form textarea {
+	margin: 0.5em 0em 0.5em 1em;}
+
+#inputs {
+	margin: 0em 0em 1em 0em;}

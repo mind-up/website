@@ -1,0 +1,73 @@
+{% extends 'back/base.html.twig' %}
+
+{% block body %}
+    <h1>Member list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Username</th>
+                <th>Password</th>
+                <th>Email</th>
+                <th>Isactive</th>
+                <th>Name</th>
+                <th>Firstname</th>
+                <th>Description</th>
+                <th>Mobile</th>
+                <th>Addressid</th>
+                <th>Cityofbirth</th>
+                <th>Studentcardpath</th>
+                <th>Idcardpath</th>
+                <th>Cvpath</th>
+                <th>Licensepath</th>
+                <th>Graycardpath</th>
+                <th>Picturepath</th>
+                <th>Isimportant</th>
+                <th>Haskey</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for member in members %}
+            <tr>
+                <td><a href="{{ path('member_show', { 'id': member.id }) }}">{{ member.id }}</a></td>
+                <td>{{ member.username }}</td>
+                <td>{{ member.password }}</td>
+                <td>{{ member.email }}</td>
+                <td>{% if member.isActive %}Yes{% else %}No{% endif %}</td>
+                <td>{{ member.name }}</td>
+                <td>{{ member.firstname }}</td>
+                <td>{{ member.description }}</td>
+                <td>{{ member.mobile }}</td>
+                <td>{{ member.addressId }}</td>
+                <td>{{ member.cityOfBirth }}</td>
+                <td>{{ member.studentCardPath }}</td>
+                <td>{{ member.idCardPath }}</td>
+                <td>{{ member.cvPath }}</td>
+                <td>{{ member.licensePath }}</td>
+                <td>{{ member.grayCardPath }}</td>
+                <td>{{ member.picturePath }}</td>
+                <td>{% if member.isImportant %}Yes{% else %}No{% endif %}</td>
+                <td>{% if member.hasKey %}Yes{% else %}No{% endif %}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('member_show', { 'id': member.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('member_edit', { 'id': member.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('member_new') }}">Create a new entry</a>
+        </li>
+    </ul>
+{% endblock %}

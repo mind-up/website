@@ -1,0 +1,74 @@
+{% extends 'base.html.twig' %}
+
+{% block css %}
+	{{ parent() }}
+	<link href="{{ asset('css/index.css') }}" 
+		type="text/css" 
+		rel="stylesheet" />
+{% endblock %}
+
+{% block body %}
+	<!--<section id="heading">
+		<ul>
+			<li><img class="heading_pic" src="{{ images['home-slider-1']['src'] }}" /></li> 
+			<li><img class="heading_pic" src="{{ images['home-slider-2']['src'] }}" /></li>
+			<li><img class="heading_pic" src="{{ images['home-slider-3']['src'] }}" /></li>
+		</ul>
+	</section>-->
+
+	<section>
+		<h2>Présentation</h2>
+		<p>
+		Zed ut perspiciatis, unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam eaque ipsa, quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt, explicabo. Nemo enim ipsam voluptatem, quia voluptas sit, aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos, qui ratione voluptatem sequi nesciunt, neque porro quisquam est, qui dolorem ipsum, quia dolor sit, amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt, ut labore et dolore magnam aliquam quaerat voluptatem.
+		</p>
+	</section>
+
+	<section id="cascading">
+		<h1>{{ h[1][1] }}</h1>
+	</section>
+	
+	<section>
+		<h2>{{ h[2][2] }}</h2>
+		<p>
+		Zed ut perspiciatis, unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam eaque ipsa, quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt, explicabo. Nemo enim ipsam voluptatem, quia voluptas sit, aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos, qui ratione voluptatem sequi nesciunt, neque porro quisquam est, qui dolorem ipsum, quia dolor sit, amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt, ut labore et dolore magnam aliquam quaerat voluptatem.
+		</p>	
+	</section>
+	
+	<section id="team">
+		<h2>Le bureau</h2>
+		<p>Le coeur de la Junior-Entreprise, sans lequel rien ne serait possible.</p>
+		<div id="members">
+			{% for department in departments %}
+					{% for job in jobs %}
+						{% for member in members %}
+							{% if department == job.department and  job == member.job and member.isImportant%}
+								<a href="/member/{{member.id}}" class="member">
+									<img src="/images/profils/{{member.imageName}}"></img>
+									<span>
+										<h3>{{ member.firstname }} {{ member.name }}</h3>
+										<h3>{{ member.job }}</h3>
+									</span>
+								</a>
+							{% endif %}
+						{% endfor %}
+					{% endfor %}
+		{% endfor %}
+		
+		</div>
+	</section>
+	
+	<section>
+		<h2>Le mot du Président</h2>
+		<p>
+			"Depuis plus de 15 ans, Mind-Up répond aux besoins des professionnels en 
+			mettant à leur disposition les compétences des étudiants de l'IG2I. 
+			Seule Junior-Entreprises du Pas-De-Calais, Mind-Up a su 
+			développer un véritable savoir-faire dans le domaine de 
+			l'informatique. Notre équipe, 
+			formée pour répondre au mieux à vos attentes a été recrutée de 
+			manière exigeante et rigoureuse, pour vous guider dans vos projets 
+			professionnels." - Abdelhakim Benchiha
+		</p>	
+	</section>
+{% endblock %}
+

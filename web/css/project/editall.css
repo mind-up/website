@@ -1,0 +1,42 @@
+form {
+	margin: 1em;
+	display: flex;
+	flex-wrap: wrap;
+	flex-direction: column;
+}
+
+.bb {
+	display: flex;
+	flex-wrap: wrap;
+	flex-direction: row;
+}
+
+
+.aa {
+	display: flex;
+	flex-wrap: wrap;
+	flex-direction: column;}
+
+.bb textarea {
+	flex-grow:1;}
+
+.project_image {
+    position:absolute;
+    height:0;
+    border: 0px}
+
+img.button {
+	height: 6em;
+	width: 10em;}
+
+.project {
+	display: flex;
+	flex-wrap: wrap;
+	flex-direction: row;
+	align-items: strech;
+}
+
+.project > *:first-child  {
+	flex-grow:1;
+}
+

@@ -1,0 +1,87 @@
+{% extends 'back/base.html.twig' %}
+
+{% block css %}
+	{{ parent() }}
+	<link href="{{ asset('css/project/editall.css') }}" 
+		type="text/css" 
+		rel="stylesheet" />
+{% endblock %}
+
+{% block body %}
+    <h1>Projets</h1>
+	{% for project in projects %}
+		<div class="project">
+			{{ form_start(project.form) }}
+				<div class="bb">
+					<div class="aa">
+						<label for="project_image_{{loop.index}}">
+							<img class="button" src="/images/projects/{{project.object.imageName}}" class="aa"></img>
+						</label>
+						{{ form_widget(project.form.image, 
+							{'id': 'project_image_'~loop.index, 
+							'attr':{'class':'project_image'}}  ) }}
+					</div>
+					<div class="aa">
+						{{ form_widget(project.form.name) }}
+						{{ form_widget(project.form.client) }}
+						{{ form_row(project.form.visible) }}
+					</div>
+					{{ form_widget(project.form.members) }}
+					{{ form_widget(project.form.technos) }}
+					{{ form_widget(project.form.description) }}
+					<input type="submit" value="Update" />
+				</div>
+			{{ form_end(project.form) }}
+		
+				{{ form_start(project.deleteForm) }}
+					<input type="submit" value="Delete">
+				{{ form_end(project.deleteForm) }}
+			
+		</div>
+	{% endfor %}
+	
+	{{ form_start(newForm) }}
+		<div class="bb">
+			<div class="aa">
+				<label for="project_image_0">
+					<img class="button" src="/images/default.png" class="aa"></img>
+				</label>
+				{{ form_widget(newForm.image, 
+					{'id': 'project_image_0', 
+					'attr':{'class':'project_image'}}  ) }}
+			</div>
+			<div class="aa">
+				{{ form_widget(newForm.name) }}
+				{{ form_widget(newForm.client) }}
+				{{ form_row(newForm.visible) }}
+			</div>
+			{{ form_widget(newForm.members) }}
+			{{ form_widget(newForm.technos) }}
+			{{ form_widget(newForm.description) }}
+			<input type="submit" value="New" />
+		</div>
+	{{ form_end(newForm) }}
+    
+    
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+<script>
+function handleFileSelect(evt) {
+	var img = $(this).parent().find('label').find('img');
+	console.log(img);
+	var files = evt.target.files;
+	for (var i = 0, f; f = files[i]; i++) {
+		if (!f.type.match('image.*')) {
+			continue;
+		}
+		var reader = new FileReader();
+		reader.onload = (function(theFile) {
+			return function(e) {
+				img.attr("src",e.target.result)
+			};
+		})(f);
+		reader.readAsDataURL(f);
+	}
+}
+$('input:file').change(handleFileSelect);
+</script>  
+{% endblock %}
