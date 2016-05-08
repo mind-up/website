@@ -1,0 +1,4 @@
+#main section {
+	margin: 2em 1em;}
+#main section:first-child {
+	margin-top: 0em;}

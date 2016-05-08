@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block css %}
+	{{ parent() }}
+	<link href="{{ asset('css/back/main.css') }}" 
+		type="text/css" 
+		rel="stylesheet" />
+{% endblock %}
+
+{% block navs %}
+	{{ parent() }}
+	<nav id="back-nav">
+		{% for right in rights %}
+			{% if attribute(user.job, right.textId|replace({'_':''})) %}
+				<a href="{{right.url}}">{{right.text}}</a>
+			{% endif %}
+		{% endfor %}
+		<a href="/logout">Logout</a>
+	</nav>
+{% endblock %}
+
+{% block body %}
+	
+{% endblock %}
+

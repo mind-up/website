@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block css %}
+	{{ parent() }}
+	<link href="{{ asset('css/contact/index.css') }}" 
+		type="text/css" 
+		rel="stylesheet" />
+{% endblock %}
+
+{% block body %}
+	<section id="contact">
+		<h1>Un projet à nous confier ?</h1>
+		<p>Contactez-nous par le biais du formulaire ci-dessous et nous vous répondrons sous 72 heures.</p>
+		{{ form_start(form) }}
+			<div id="inputs">
+				<div id="texts">
+					{{ form_widget(form.firstname) }}
+					{{ form_widget(form.name) }}
+					{{ form_widget(form.company) }}
+					{{ form_widget(form.email) }}
+					{{ form_widget(form.phone) }}
+				</div>
+				{{ form_widget(form.message)}}
+			</div>
+		    <input type="submit" value="Envoyer" />
+		{{ form_end(form) }}
+	</section>
+{% endblock %}
+

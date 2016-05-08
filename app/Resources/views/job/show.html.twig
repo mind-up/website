@@ -1,0 +1,74 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<section>
+    <h1>Job</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ job.id }}</td>
+            </tr>
+            <tr>
+                <th>Department</th>
+                <td>{{ job.department }}</td>
+            </tr>
+            <tr>
+                <th>Text</th>
+                <td>{{ job.text }}</td>
+            </tr>
+            <tr>
+                <th>Browsebackoffice</th>
+                <td>{% if job.browseBackOffice %}Yes{% else %}No{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Editselfinfos</th>
+                <td>{% if job.editSelfInfos %}Yes{% else %}No{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Readotherinfos</th>
+                <td>{% if job.readOtherInfos %}Yes{% else %}No{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Manageproject</th>
+                <td>{% if job.manageProject %}Yes{% else %}No{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Editfigures</th>
+                <td>{% if job.editFigures %}Yes{% else %}No{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Editotherinfos</th>
+                <td>{% if job.editOtherInfos %}Yes{% else %}No{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Editpublictexts</th>
+                <td>{% if job.editPublicTexts %}Yes{% else %}No{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Managepositions</th>
+                <td>{% if job.managePositions %}Yes{% else %}No{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Managemembers</th>
+                <td>{% if job.manageMembers %}Yes{% else %}No{% endif %}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('job_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('job_edit', { 'id': job.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+</section>
+{% endblock %}

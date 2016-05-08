@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+
+{% block css %}
+	{{ parent() }}
+	<link href="{{ asset('css/project.css') }}" type="text/css" rel="stylesheet" />
+{% endblock %}
+
+{% block body %}
+	<h1>Nos réalisations.</h1>
+	<p>
+	Fort des compétences acquises par ses réalisateurs, Mind-Up est capable 
+	de réaliser votre projet, quel qu'il soit.
+	</p>
+	<p>
+	Comment ? Tout ça c'est du blabla commercial vous dites ? Hé bien jugez par
+	vous même : ci-dessous une liste de projets sur lesquels nous avons
+	pu travailler.
+	</p>
+	<div id="projects">
+		{% for project in projects %}
+			<a class="project" href="/project/{{ project.id }}" >
+				<span class="hide">
+					<div>
+						<h3>{{ project.name }}</h3>
+						<p>{{ project.description }}</p>
+					</div>
+				</span>
+				<img src="/images/projects/{{ project.imageName }}"></img>
+			</a>
+		{% endfor %}
+	</div>
+{% endblock %}

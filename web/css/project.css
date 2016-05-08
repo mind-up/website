@@ -1,0 +1,32 @@
+#projects {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;}
+.project {
+	display: flex;
+	flex-direction:column;
+	overflow: hidden;
+	margin: 1em;}
+	
+#projects img {
+	height: 18em;
+	transition: filter 0.5s;}
+.project .hide {
+	position:relative;
+	height: 0em;
+	display: flex;
+	filter: opacity(0);
+	transition: filter 0.5s;}
+
+#projects .hide > * {
+	width: 0;
+	flex-grow: 1;
+	padding: 0.5em;}
+
+.project:hover .hide {
+	filter: opacity(1.0);
+}
+.project:hover img{
+	filter: opacity(0.1);
+}
+	

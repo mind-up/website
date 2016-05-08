@@ -1,0 +1,26 @@
+form {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+}
+
+.name{
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+}
+
+.col {
+	display: flex;
+	flex-direction: column;
+	flex-wrap: wrap;
+}
+
+img.button {
+	height: 6em;
+	width: 10em;}
+
+.profil_image {
+    position:absolute;
+    height:0;
+    border: 0px}

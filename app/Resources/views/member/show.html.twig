@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+
+{% block css %}
+	{{ parent() }}
+	<link href="{{ asset('css/member.css') }}" type="text/css" rel="stylesheet" />
+{% endblock %}
+
+{% block body %}
+	<div id="member">
+		<div id="infos">
+			<img src="/images/profils/{{member.imageName}}"></img>
+			<div>
+				<h3>{{ member.firstname }} {{ member.name }}</h3>
+				<p>{{ member.job }}</p>
+				<p>{{ member.email }}</p>
+				<p>{{ member.mobile }}</p>
+			</div>
+		</div>
+		<p>
+			{{ member.description }}
+		</p>
+	</div>
+{% endblock %}
+

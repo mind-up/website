@@ -1,0 +1,49 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>AskInfo list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Firstname</th>
+                <th>Company</th>
+                <th>Email</th>
+                <th>Phone</th>
+                <th>Message</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for askInfo in askInfos %}
+            <tr>
+                <td><a href="{{ path('askinfo_show', { 'id': askInfo.id }) }}">{{ askInfo.id }}</a></td>
+                <td>{{ askInfo.name }}</td>
+                <td>{{ askInfo.firstname }}</td>
+                <td>{{ askInfo.company }}</td>
+                <td>{{ askInfo.email }}</td>
+                <td>{{ askInfo.phone }}</td>
+                <td>{{ askInfo.message }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('askinfo_show', { 'id': askInfo.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('askinfo_edit', { 'id': askInfo.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('askinfo_new') }}">Create a new entry</a>
+        </li>
+    </ul>
+{% endblock %}

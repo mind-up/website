@@ -1,0 +1,46 @@
+# To get started with security, check out the documentation:
+# http://symfony.com/doc/current/book/security.html
+security:
+
+    encoders:
+        AppBundle\Entity\Member:
+            algorithm: bcrypt
+    # http://symfony.com/doc/current/book/security.html#where-do-users-come-from-user-providers
+    providers:
+        our_db_provider:
+            entity:
+                class: AppBundle:Member
+                property: username
+
+    firewalls:
+        # disables authentication for assets and the profiler, adapt it according to your needs
+        dev:
+            pattern: ^/(_(profiler|wdt)|css|images|js)/
+            security: false
+
+        main:
+            anonymous: ~
+            # activate different ways to authenticate
+
+            # http_basic: ~
+            # http://symfony.com/doc/current/book/security.html#a-configuring-how-your-users-will-authenticate
+
+            form_login:
+                login_path: login
+                check_path: login
+            
+            provider: our_db_provider
+            
+            logout:
+                path:   /logout
+                target: /
+
+    access_control:
+        - { path: ^/login$, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/$, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/team$, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/member/[0-9]*$, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/projects$, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/project/[0-9]*$, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/contact$, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/, roles: ROLE_MEMBER }

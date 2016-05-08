@@ -1,0 +1,19 @@
+#back-nav {
+	/*background: #4e5;*/
+	display: flex;
+	flex-wrap: wrap;
+}
+
+#back-nav a {
+	/*background: #c4f;*/
+	padding: 1em;
+	margin: 0.1em;
+	border: 1px solid rgba(0,0,255, 0.2);
+	width: 7em;
+	text-align:center;
+	flex-grow: 1;
+}
+
+#back-nav a:hover {
+	background: rgba(0,0,255,0.2);
+}

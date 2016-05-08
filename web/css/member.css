@@ -1,0 +1,19 @@
+#member {
+	/*display: flex;
+	flex-direction: row:*/
+}
+
+#infos {
+	display: flex;
+	flex-direction: column:
+	flex-wrap: wrap;
+}
+
+#member img {
+	width: 10em;
+	height: 10em;
+}
+
+#infos div {
+	margin: 0em 0em 0em 1em;
+}
