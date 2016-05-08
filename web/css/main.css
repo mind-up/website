@@ -23,7 +23,8 @@ p {
 	text-align: justify;
     text-justify: inter-word;}
 textarea {
-	flex-grow: 1;}
+	flex-grow: 1;
+	resize: vertical;}
 .button, input, textarea, select {
 	border: 1px solid rgba(0,0,0, 0.15);
 	background: rgba(255,255,255, 0.2);
