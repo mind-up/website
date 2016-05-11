@@ -91,7 +91,11 @@ footer a {
 	border: 1px solid rgba(0,0,255, 0.2);}
 footer a:hover {
 	background:rgba(0,0,0, 0.1);}
-	
+
+footer p {
+	padding: 0;
+	font-size: 0.8em;
+	text-align: center;}
 	
 #banner {
 	width: 100%;

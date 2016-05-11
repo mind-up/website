@@ -62,7 +62,7 @@ $(function(){
 /*** Création du bouton top ***/
 
 $(document).ready(function(){
-   $('body').append('<a href="#top" class="top_link" title="Revenir en haut de page"><img style="width:30px;height:30px;" src="' + BASE_URL +'ressources/top_arrow.png"/></a>');
+   /*$('body').append('<a href="#top" class="top_link" title="Revenir en haut de page"><img style="width:30px;height:30px;" src="' + BASE_URL +'ressources/top_arrow.png"/></a>');*/
    $('.top_link').css({
 	'position'				:	'fixed',
 	'right'					:	'20px',
