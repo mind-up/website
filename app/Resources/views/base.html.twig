@@ -43,6 +43,9 @@
 			</div>
 		</header>
 		{% block navs %}
+		{% if banner is defined %}
+			<img id="banner" src="/images/general/banner.jpg"></im>
+		{% endif %}
     	{% endblock %}
     	<section id="main">
     		<div id="innerMain">

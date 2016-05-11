@@ -13,8 +13,9 @@ class HomeController extends MainController
      */
     public function homeAction(Request $request)
     {
-        return $this->render('home.html.twig',
-        		$this->getData());
+        return $this->render('home.html.twig', array_merge(
+        		$this->getData(),
+        		['banner'=>true]));
     }
     
     protected function getData() {

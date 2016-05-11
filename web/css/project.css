@@ -10,13 +10,17 @@
 	
 #projects img {
 	height: 18em;
-	transition: filter 0.5s;}
+	transition: filter 0.5s;
+	-webkit-transition: filter 0.5s;
+	-moz-transition: filter 0.5s;}
 .project .hide {
 	position:relative;
 	height: 0em;
 	display: flex;
 	filter: opacity(0);
-	transition: filter 0.5s;}
+	transition: filter 0.5s;
+	-webkit-transition: filter 0.5s;
+	-moz-transition: filter 0.5s;}
 
 #projects .hide > * {
 	width: 0;

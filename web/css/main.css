@@ -21,7 +21,8 @@
 	word-wrap: break-word;*/}
 p {
 	text-align: justify;
-    text-justify: inter-word;}
+    text-justify: inter-word;
+    line-height: 1.5em;}
 textarea {
 	flex-grow: 1;
 	resize: vertical;}
@@ -90,6 +91,12 @@ footer a {
 	border: 1px solid rgba(0,0,255, 0.2);}
 footer a:hover {
 	background:rgba(0,0,0, 0.1);}
+	
+	
+#banner {
+	width: 100%;
+	margin: 0;
+	padding: 0;}
 /*******************************************************************************
 * Members 
 *******************************************************************************/
@@ -105,7 +112,6 @@ footer a:hover {
 	height: auto;
 	width: auto;
 	display: flex;
-	/*border: 1px solid rgba(0,0,255, 0.2);*/
 	margin: 1em 2em;
 	flex-grow: 1;}
 .member * {
@@ -114,11 +120,13 @@ footer a:hover {
 	flex-grow: auto;
     width: 4em;
     height: 4em;
-    box-shadow:  2px 1px 2px #333333; 
     margin: 0.5em;
     border-radius: 50%;
 	flex-grow: auto;
-	width:auto;}
+	width:auto;
+	border: 4px  solid rgba(0,0,0, 0.3);}
+.member img:hover {
+	border: 4px solid rgba(0,0,128, 0.3);}}
 .member * {
 	flex-grow: auto;}
 .member h3 {
@@ -182,5 +190,28 @@ footer a:hover {
 	letter-spacing: 1em;
 	opacity: 0;
 	border: 0px solid rgba(0,0,0, 1);}
-
+/*******************************************************************************
+* competencies 
+*******************************************************************************/
+#competencies > p {
+	margin-bottom: 1em;}
+#competencies img {
+	width: 10em;}
+#competencies ul {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	flex-wrap: wrap;}
+#competencies ul > * {
+	align-self: center;}
+#competencies ul li{
+	/*cursor: pointer;*/}
+#competencies ul li p {
+	text-align:center;
+	border-bottom: 2px solid rgba(0,0,0, 0);}
+#competencies ul li:hover p {
+	border-bottom: 2px solid rgba(0,0,0, 0.4);
+    transition: border-color .5s ease-in-out;
+    -webkit-transition: border-color .5s ease-in-out;
+    -moz-transition: border-color .5s ease-in-out;}
 
