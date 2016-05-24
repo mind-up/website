@@ -50,16 +50,16 @@ class AskInfoController extends MainController
             $em->persist($askInfo);
             $em->flush();
 			//
-			$message = \Swift_Message::newInstance()
-				->setSubject('Hello Email')
-				->setFrom('send@example.com')
-				->setTo('loicbourgois.web@gmail.com')
-				->setBody(
-				    $this->renderView(
-				        'askinfo/email.html.twig',
-				        ['name' => 'Bob']),
-				    'text/html');
-			$this->get('mailer')->send($message);
+			$to = "contact@mind-up.fr";
+			$subject = "Mind-Up : contact from " . $askInfo->getFirstname() . " " . $askInfo->getName() ;
+			$message = "Firstname : " . $askInfo->getFirstname() . "\r\n" 
+				. "Name : " . $askInfo->getName() . "\r\n" 
+				. "Company : " . $askInfo->getCompany() . "\r\n" 
+				. "Email : " . $askInfo->getEmail() . "\r\n" 
+				. "Phone : " . $askInfo->getPhone() . "\r\n" 
+				. "Message : \r\n" . $askInfo->getMessage();
+			$headers = 'From: '.$askInfo->getEmail();
+			mail($to,$subject,$message,$headers);
 			//
             return $this->redirectToRoute('askinfo_new');
         }
