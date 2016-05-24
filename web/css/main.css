@@ -22,7 +22,10 @@
 p {
 	text-align: justify;
     text-justify: inter-word;
-    line-height: 1.5em;}
+    line-height: 1.5em;
+	font-weight: 300;
+	font-size: 1em;
+	padding: 0.5em 0em;}
 textarea {
 	flex-grow: 1;
 	resize: vertical;}
@@ -49,29 +52,21 @@ h1 {
 	margin-bottom: 1em;}
 h2 {
 	font-weight: 300;
-	font-size: 1.5em;
+	font-size: 1.25em;
 	padding: 1em 0em 0em 0em;
 	border-bottom: solid #58B884;
 	border-radius: 2px;
 	margin-bottom: 1em;
 	flex-grow: 0;
 	flex-shrink:1;
-	display: inline-block;
-	}
-
-p {
-	font-weight: 300;
-	font-size: 1em;
-	padding: 0.5em 0em;
-	text-indent: 2em;
-	}
+	display: inline-block;}
 
 /*******************************************************************************
 * Header 
 *******************************************************************************/
 header {
 	background: rgba(255,255,255, 0.90);
-	position: fixed;
+	/*position: fixed;*/
 	display: block;
 	width: 100%;
 	/* height: 91px; */
