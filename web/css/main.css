@@ -5,20 +5,20 @@
 	/*text-align: left;
     vertical-align: middle;
     text-indent: 0em;*/
-    color: rgba(32,32,32,1);
-    background-color: rgba(0,0,0,0);
-    text-decoration: none;
-    list-style-type: none;
-    /*font-size: 1em;*/
-    font-family: sans-serif;
-    font-weight: normal;
-    margin: 0em;
-    padding: 0em;
-    /*list-style-type: none;
+	background-color: rgba(0,0,0,0);
+	text-decoration: none;
+	list-style-type: none;
+	font-size: 1em;
+	font-family: sans-serif;
+	/* font-weight: normal; */
+	margin: 0em;
+	/* padding: 0em; */
+	/*list-style-type: none;
 	height: auto;
 	width: auto;
 	border: 0px solid rgba(0,0,0, 1);
-	word-wrap: break-word;*/}
+	word-wrap: break-word;*/
+	}
 p {
 	text-align: justify;
     text-justify: inter-word;
@@ -49,23 +49,33 @@ h1 {
 	margin-bottom: 1em;}
 h2 {
 	font-weight: 300;
-	font-size: 1.15em;
-	padding: 1em 0em 0.3em 0em;
-	border-bottom: solid rgba(0,0,255, 0.2);
+	font-size: 1.5em;
+	padding: 1em 0em 0em 0em;
+	border-bottom: solid #58B884;
+	border-radius: 2px;
+	margin-bottom: 1em;
 	flex-grow: 0;
 	flex-shrink:1;
-	display: inline-block;}
+	display: inline-block;
+	}
 
 p {
 	font-weight: 300;
 	font-size: 1em;
-	padding: 0.5em 0em;}
+	padding: 0.5em 0em;
+	text-indent: 2em;
+	}
 
 /*******************************************************************************
 * Header 
 *******************************************************************************/
 header {
 	background: rgba(255,255,255, 0.90);
+	position: fixed;
+	display: block;
+	width: 100%;
+	/* height: 91px; */
+	z-index: 2;
 	}
 /*******************************************************************************
 * Footer 
@@ -75,20 +85,27 @@ body {
 	flex-wrap: wrap;
 	flex-direction: column;
 	min-height: 100vh;
-	background: rgba(0, 100, 255, 0.10);}
+	background: #f6f6f6;
+	}
 footer {
-	background-color: rgba(0,0,255, 0.1); 
+	background-color: #3E67A4;
+	color: #eeeeee;
 	padding: 1em;
 	display: flex;
 	flex-wrap: wrap;
-	flex-direction: row;}
+	flex-direction: row;
+	}
 footer * {
 	margin: 0em 1em;
 	align-self: center;}
 footer a {
 	padding:0.5em;
 	text-align: center;
-	border: 1px solid rgba(0,0,255, 0.2);}
+	border: 2px solid #EFEFEF;
+	background: #EEEEEE;
+	border-radius: 5px;
+	color: #444444;
+	}
 footer a:hover {
 	background:rgba(0,0,0, 0.1);}
 
@@ -100,14 +117,18 @@ footer p {
 #banner {
 	width: 100%;
 	margin: 0;
-	padding: 0;}
+	padding: 0;
+	position: relative;
+	z-index: 1;
+	}
 /*******************************************************************************
 * Members 
 *******************************************************************************/
 #members {
 	display: flex;
 	flex-direction: row;
-	flex-wrap: wrap;}
+	flex-wrap: wrap;
+	}
 .members{
 	display: flex;
 	flex-direction: row;
@@ -119,7 +140,10 @@ footer p {
 	margin: 1em 2em;
 	flex-grow: 1;}
 .member * {
-	flex-grow: auto;}
+	flex-grow: auto;
+	margin-top: .55em;
+	margin-left: .2em;
+	}
 .member img {
 	flex-grow: auto;
     width: 4em;
@@ -134,7 +158,9 @@ footer p {
 .member * {
 	flex-grow: auto;}
 .member h3 {
-	font-size: 1.02em;}
+	font-size: 1.02em;
+	color: #3E67A4;
+	}
 /*******************************************************************************
 * Nav 
 *******************************************************************************/
